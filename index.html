@@ -1,1 +1,2009 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kym Kelly Malana — E-commerce Virtual Assistant portfolio.">
+  <meta name="author" content="Kym Kelly Malana">
+  <title>Kym Kelly Malana | E-commerce VA</title>
+
+  <style>
+    /* =========================================================
+       Kym Kelly Malana — Personal Portfolio
+       Everything is contained in this single index.html file.
+       No external libraries required.
+       ========================================================= */
+
+    :root {
+      --bg: #070b14;
+      --bg-soft: #0d1322;
+      --card: rgba(17, 25, 43, 0.78);
+      --card-solid: #11192b;
+      --text: #f4f7ff;
+      --muted: #9ba8bd;
+      --primary: #4f7cff;
+      --primary-light: #7ea0ff;
+      --secondary: #6d4aff;
+      --cyan: #35c8ff;
+      --border: rgba(255, 255, 255, 0.09);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
+      --radius: 20px;
+      --max-width: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    html {
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(79, 124, 255, 0.13), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(109, 74, 255, 0.10), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: auto;
+    }
+
+    /* =========================
+       Navigation
+       ========================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(7, 11, 20, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: 0.3s ease;
+    }
+
+    header.scrolled {
+      border-bottom-color: var(--border);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.22);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: white;
+      font-size: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 8px 25px rgba(79, 124, 255, 0.32);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 9px 11px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 9px;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: white;
+      background: rgba(79, 124, 255, 0.10);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card);
+      color: white;
+      cursor: pointer;
+      font-size: 21px;
+    }
+
+    /* =========================
+       General Sections
+       ========================= */
+
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 45px;
+      max-width: 680px;
+    }
+
+    .eyebrow {
+      color: var(--primary-light);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 5vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      margin-bottom: 14px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, #ffffff, #83a4ff 55%, #61d9ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* =========================
+       Hero
+       ========================= */
+
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px;
+      margin-bottom: 22px;
+      color: #b9f7d1;
+      background: rgba(55, 211, 125, 0.08);
+      border: 1px solid rgba(55, 211, 125, 0.17);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .availability-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #42e68a;
+      box-shadow: 0 0 12px #42e68a;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      max-width: 800px;
+      margin-bottom: 22px;
+    }
+
+    .hero-title {
+      color: var(--primary-light);
+      font-size: clamp(20px, 3vw, 27px);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero-description {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 19px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-color: transparent;
+      box-shadow: 0 12px 30px rgba(79, 124, 255, 0.23);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 17px 38px rgba(79, 124, 255, 0.33);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.035);
+      color: #d9e0ef;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(126, 160, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .hero-card-wrap {
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-card {
+      width: min(100%, 390px);
+      aspect-ratio: 0.9;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background:
+        linear-gradient(145deg, rgba(79, 124, 255, 0.16), rgba(109, 74, 255, 0.06) 45%, rgba(17, 25, 43, 0.85)),
+        var(--card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      top: -75px;
+      right: -65px;
+      border-radius: 50%;
+      background: rgba(79, 124, 255, 0.20);
+      filter: blur(10px);
+    }
+
+    .hero-initials {
+      position: absolute;
+      top: 38px;
+      left: 38px;
+      width: 130px;
+      height: 130px;
+      display: grid;
+      place-items: center;
+      border-radius: 32px;
+      color: white;
+      font-size: 45px;
+      font-weight: 900;
+      background: linear-gradient(135deg, rgba(79,124,255,.95), rgba(109,74,255,.92));
+      box-shadow: 0 25px 60px rgba(79, 124, 255, 0.25);
+    }
+
+    .hero-card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-name {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .hero-card-role {
+      color: var(--primary-light);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero-mini-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .mini-tag {
+      padding: 6px 9px;
+      color: #bac7df;
+      background: rgba(255,255,255,.055);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 11px;
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(1px);
+      pointer-events: none;
+    }
+
+    .orb-1 {
+      width: 300px;
+      height: 300px;
+      top: 15%;
+      right: -150px;
+      background: rgba(79, 124, 255, 0.08);
+    }
+
+    .orb-2 {
+      width: 250px;
+      height: 250px;
+      bottom: -140px;
+      left: -90px;
+      background: rgba(109, 74, 255, 0.07);
+    }
+
+    /* =========================
+       About
+       ========================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 65px;
+      align-items: start;
+    }
+
+    .about-intro {
+      font-size: 22px;
+      line-height: 1.45;
+      color: #dbe3f2;
+      margin-bottom: 24px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .info-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .info-item {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .info-icon {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: var(--primary-light);
+      background: rgba(79,124,255,.10);
+    }
+
+    .info-label {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+
+    .info-value {
+      color: #eaf0ff;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    /* =========================
+       Skills
+       ========================= */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .skill-card {
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+      transition: .3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(79,124,255,.3);
+      background: linear-gradient(145deg, rgba(79,124,255,.10), rgba(255,255,255,.025));
+      box-shadow: 0 15px 40px rgba(0,0,0,.20);
+    }
+
+    .skill-number {
+      color: rgba(126,160,255,.45);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .skill-card h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       Experience
+       ========================= */
+
+    .timeline {
+      position: relative;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 7px;
+      bottom: 7px;
+      width: 1px;
+      background: linear-gradient(var(--primary), rgba(79,124,255,.05));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 52px;
+      margin-bottom: 35px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 3px rgba(79,124,255,.2), 0 0 18px rgba(79,124,255,.45);
+    }
+
+    .timeline-card {
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+    }
+
+    .timeline-card .date {
+      display: inline-block;
+      color: var(--primary-light);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .timeline-card h3 {
+      font-size: 21px;
+      margin-bottom: 5px;
+    }
+
+    .timeline-card h4 {
+      color: #c3ccdd;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .timeline-card p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       Projects
+       ========================= */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--card);
+      transition: .3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(79,124,255,.30);
+      box-shadow: var(--shadow);
+    }
+
+    .project-visual {
+      height: 145px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 25% 35%, rgba(53,200,255,.28), transparent 22%),
+        radial-gradient(circle at 75% 65%, rgba(109,74,255,.32), transparent 25%),
+        #101a31;
+    }
+
+    .project-window {
+      width: 70%;
+      height: 75%;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 9px;
+      background: rgba(7,11,20,.65);
+      box-shadow: 0 15px 30px rgba(0,0,0,.28);
+      padding: 10px;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 9px;
+    }
+
+    .window-dots span {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #66718a;
+    }
+
+    .window-line {
+      height: 5px;
+      margin-bottom: 6px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, var(--primary), rgba(126,160,255,.1));
+    }
+
+    .window-line.short {
+      width: 55%;
+    }
+
+    .project-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 22px;
+    }
+
+    .project-label {
+      color: var(--primary-light);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .project-body h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 17px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .project-tags span {
+      padding: 5px 8px;
+      border-radius: 7px;
+      color: #abb9d1;
+      background: rgba(255,255,255,.045);
+      font-size: 10px;
+    }
+
+    /* =========================
+       Education & Certifications
+       ========================= */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .education-card,
+    .cert-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--card);
+    }
+
+    .education-item {
+      position: relative;
+      padding: 0 0 22px 22px;
+      margin-bottom: 22px;
+      border-left: 2px solid rgba(79,124,255,.20);
+    }
+
+    .education-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .education-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .education-item span {
+      color: var(--primary-light);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .education-item h3 {
+      font-size: 17px;
+      margin: 5px 0 2px;
+    }
+
+    .education-item p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cert-card {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .certificate {
+      display: flex;
+      gap: 15px;
+      padding: 18px;
+      border-radius: 13px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--border);
+    }
+
+    .cert-icon {
+      width: 43px;
+      height: 43px;
+      flex: 0 0 43px;
+      display: grid;
+      place-items: center;
+      color: #a9bfff;
+      background: rgba(79,124,255,.12);
+      border-radius: 11px;
+      font-size: 20px;
+    }
+
+    .certificate h3 {
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+
+    .certificate p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* =========================
+       Services
+       ========================= */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(150deg, rgba(17,25,43,.88), rgba(17,25,43,.5));
+      transition: .3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(79,124,255,.34);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, rgba(79,124,255,.18), rgba(109,74,255,.14));
+      color: var(--primary-light);
+      font-size: 21px;
+    }
+
+    .service-card h3 {
+      font-size: 18px;
+      margin-bottom: 9px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       Contact
+       ========================= */
+
+    .contact-box {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      padding: 55px;
+      border: 1px solid var(--border);
+      border-radius: 27px;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(109,74,255,.18), transparent 30%),
+        radial-gradient(circle at 10% 100%, rgba(79,124,255,.14), transparent 30%),
+        var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      right: -100px;
+      bottom: -130px;
+      border-radius: 50%;
+      background: rgba(79,124,255,.10);
+      filter: blur(30px);
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-content h2 {
+      font-size: clamp(30px, 5vw, 45px);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 15px;
+    }
+
+    .contact-content > p {
+      color: var(--muted);
+      margin-bottom: 27px;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: #d8e0ef;
+      font-size: 14px;
+    }
+
+    .contact-detail-icon {
+      width: 37px;
+      height: 37px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 37px;
+      border-radius: 10px;
+      color: var(--primary-light);
+      background: rgba(79,124,255,.10);
+    }
+
+    .contact-detail a:hover {
+      color: var(--primary-light);
+    }
+
+    .contact-note {
+      position: relative;
+      z-index: 1;
+      align-self: center;
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: rgba(0,0,0,.14);
+    }
+
+    .contact-note h3 {
+      margin-bottom: 10px;
+    }
+
+    .contact-note p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 19px;
+    }
+
+    /* =========================
+       Footer
+       ========================= */
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-name {
+      color: #dfe6f5;
+      font-weight: 700;
+    }
+
+    /* =========================
+       Scroll Reveal
+       ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       Back to Top
+       ========================= */
+
+    .back-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 900;
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(17,25,43,.85);
+      backdrop-filter: blur(12px);
+      color: white;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: .3s ease;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       Responsive
+       ========================= */
+
+    @media (max-width: 980px) {
+      .nav-links {
+        position: absolute;
+        top: 74px;
+        left: 4%;
+        right: 4%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        background: rgba(10,15,27,.97);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px 14px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      .hero-card-wrap {
+        justify-content: start;
+      }
+
+      .hero-card {
+        max-width: 410px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid,
+      .projects-grid,
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      section {
+        padding: 75px 0;
+      }
+
+      .container {
+        width: min(92%, 560px);
+      }
+
+      .hero h1 {
+        font-size: clamp(43px, 14vw, 64px);
+        letter-spacing: -3px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .skills-grid,
+      .projects-grid,
+      .services-grid,
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 30px 22px;
+        gap: 30px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-card {
+        aspect-ratio: auto;
+        min-height: 330px;
+      }
+
+      .hero-initials {
+        width: 105px;
+        height: 105px;
+        font-size: 36px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVIGATION
+       Edit navigation labels/links here if needed.
+       ========================================================= -->
+  <header id="site-header">
+    <div class="container nav">
+
+      <!-- EDIT: Your name/logo -->
+      <a href="#home" class="logo">
+        <span class="logo-mark">KK</span>
+        <span>Kym Malana</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- =========================================================
+         HOME
+         EDIT: Name, title, introduction, buttons.
+         ========================================================= -->
+    <section id="home">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+
+      <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+          <div class="availability">
+            <span class="availability-dot"></span>
+            Open to opportunities
+          </div>
+
+          <!-- EDIT: Your name -->
+          <h1>
+            Kym Kelly
+            <span class="gradient-text">Malana</span>
+          </h1>
+
+          <!-- EDIT: Your professional title -->
+          <div class="hero-title">E-commerce Virtual Assistant</div>
+
+          <!-- EDIT: Your short professional introduction -->
+          <p class="hero-description">
+            Aspiring E-commerce VA with hands-on experience in product sourcing,
+            importing, and reselling. I bring a practical online-selling
+            perspective, strong attention to detail, and a willingness to learn
+            and grow with every project.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">
+              Let's Work Together
+              <span>→</span>
+            </a>
+
+            <a href="#projects" class="btn btn-secondary">
+              View My Projects
+            </a>
+          </div>
+        </div>
+
+
+        <div class="hero-card-wrap reveal">
+          <div class="hero-card">
+
+            <!-- EDIT: Replace initials if desired -->
+            <div class="hero-initials">KK</div>
+
+            <div class="hero-card-content">
+              <!-- EDIT: Your name -->
+              <div class="hero-card-name">Kym Kelly Malana</div>
+
+              <!-- EDIT: Your title -->
+              <div class="hero-card-role">E-commerce VA</div>
+
+              <div class="hero-mini-list">
+                <span class="mini-tag">Product Research</span>
+                <span class="mini-tag">Product Listing</span>
+                <span class="mini-tag">Inventory</span>
+                <span class="mini-tag">Customer Support</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         ABOUT
+         EDIT: About text and personal information.
+         ========================================================= -->
+    <section id="about">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">About Me</div>
+          <h2 class="section-title">Practical experience with a <span class="gradient-text">learner's mindset.</span></h2>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="reveal">
+            <p class="about-intro">
+              I’m an aspiring E-commerce Virtual Assistant who understands
+              online selling from a hands-on perspective.
+            </p>
+
+            <p class="about-text">
+              Although I’m new to working professionally as an E-commerce VA,
+              I have personal experience sourcing products from different
+              e-commerce platforms and selling them on another platform.
+              This has helped me develop a basic understanding of product
+              research, pricing, product selection, and the process of running
+              an online store.
+            </p>
+
+            <p class="about-text">
+              I’m detail-oriented, organized, and eager to expand my knowledge
+              of e-commerce tools and platforms. I’m interested in developing
+              my skills in product listing, product research, inventory
+              management, order processing, customer support, and other
+              e-commerce tasks.
+            </p>
+
+            <p class="about-text">
+              I may be starting without formal VA experience, but my hands-on
+              experience as an online seller has given me a practical
+              perspective on how e-commerce works. I’m a fast learner, willing
+              to adapt, and committed to providing reliable and efficient
+              support while continuously improving my skills.
+            </p>
+          </div>
+
+
+          <div class="info-card reveal">
+
+            <!-- EDIT: Personal information -->
+            <div class="info-item">
+              <div class="info-icon">📍</div>
+              <div>
+                <div class="info-label">Location</div>
+                <div class="info-value">Tuguegarao City, Cagayan, Philippines</div>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">✉</div>
+              <div>
+                <div class="info-label">Email</div>
+                <div class="info-value">kymmalana@gmail.com</div>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">💼</div>
+              <div>
+                <div class="info-label">Specialization</div>
+                <div class="info-value">E-commerce Virtual Assistance</div>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">⚡</div>
+              <div>
+                <div class="info-label">Work Style</div>
+                <div class="info-value">Detail-oriented, organized & adaptable</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         SKILLS
+         EDIT: Add/remove skills below.
+         ========================================================= -->
+    <section id="skills">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">Capabilities</div>
+          <h2 class="section-title">Skills I bring to <span class="gradient-text">the table.</span></h2>
+          <p class="section-description">
+            A growing skill set focused on supporting efficient, organized,
+            customer-focused e-commerce operations.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <div class="skill-card reveal">
+            <div class="skill-number">01</div>
+            <h3>Customer Support</h3>
+            <p>Professional and helpful communication with customers.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-number">02</div>
+            <h3>Office Suites</h3>
+            <p>Comfortable working with common office productivity tools.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-number">03</div>
+            <h3>Basic AI Tools</h3>
+            <p>Basic use of AI tools to support research and productivity.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-number">04</div>
+            <h3>Time Management</h3>
+            <p>Organizing tasks and priorities to meet deadlines.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-number">05</div>
+            <h3>Attention to Detail</h3>
+            <p>Careful handling of information, listings, and operational tasks.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-number">06</div>
+            <h3>Product Listing</h3>
+            <p>Understanding the basics of preparing and organizing product listings.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-number">07</div>
+            <h3>Platform Navigation</h3>
+            <p>Comfortable learning and navigating e-commerce platforms.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-number">08</div>
+            <h3>Inventory Tracking</h3>
+            <p>Tracking products and maintaining organized inventory information.</p>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-number">09</div>
+            <h3>Order Processing</h3>
+            <p>Understanding the flow of online orders from purchase to fulfillment.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         EXPERIENCE
+         EDIT: Experience details and dates.
+         ========================================================= -->
+    <section id="experience">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">Experience</div>
+          <h2 class="section-title">Learning through <span class="gradient-text">real-world practice.</span></h2>
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+              <span class="date">Hands-on Experience</span>
+
+              <!-- EDIT: Experience title -->
+              <h3>Online Product Sourcing & Reselling</h3>
+
+              <!-- EDIT: Experience description -->
+              <h4>Independent Online Seller</h4>
+
+              <p>
+                Gained hands-on experience sourcing products from different
+                e-commerce platforms, evaluating product options, considering
+                pricing, importing products, and reselling them through another
+                online platform. This experience provided practical exposure
+                to product selection, basic market research, pricing, and
+                online-store processes.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+              <span class="date">Professional Development</span>
+
+              <h3>E-commerce VA Skill Development</h3>
+
+              <h4>Continuous Learning</h4>
+
+              <p>
+                Currently developing knowledge across e-commerce VA tasks,
+                tools, platforms, product research, product listing,
+                inventory management, customer support, order processing,
+                and other virtual assistance niches.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         PROJECTS
+         EDIT: Replace project descriptions as you build more work.
+         ========================================================= -->
+    <section id="projects">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">Projects</div>
+          <h2 class="section-title">Building, learning, and <span class="gradient-text">creating.</span></h2>
+          <p class="section-description">
+            My projects demonstrate my willingness to learn modern tools,
+            experiment with technology, and build practical digital assets.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-card reveal">
+            <div class="project-visual">
+              <div class="project-window">
+                <div class="window-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="window-line"></div>
+                <div class="window-line short"></div>
+                <div class="window-line"></div>
+                <div class="window-line short"></div>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-label">Portfolio Development</div>
+              <h3>Personal Portfolio Website</h3>
+              <p>
+                Created a modern personal portfolio using AI-assisted
+                vibe coding to present my skills, experience, services,
+                and professional background.
+              </p>
+
+              <div class="project-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>ChatGPT</span>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="project-card reveal">
+            <div class="project-visual">
+              <div class="project-window">
+                <div class="window-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="window-line short"></div>
+                <div class="window-line"></div>
+                <div class="window-line short"></div>
+                <div class="window-line"></div>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-label">Workflow</div>
+              <h3>Vibe Coding Workflow</h3>
+              <p>
+                Exploring a practical workflow from ChatGPT-assisted coding
+                to GitHub version control and Vercel deployment.
+              </p>
+
+              <div class="project-tags">
+                <span>ChatGPT</span>
+                <span>GitHub</span>
+                <span>Vercel</span>
+                <span>Deployment</span>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="project-card reveal">
+            <div class="project-visual">
+              <div class="project-window">
+                <div class="window-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="window-line"></div>
+                <div class="window-line short"></div>
+                <div class="window-line"></div>
+                <div class="window-line short"></div>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-label">E-commerce Practice</div>
+              <h3>Product Sourcing & Reselling</h3>
+              <p>
+                Applied practical product sourcing, selection, importing,
+                pricing, and reselling experience across online
+                e-commerce platforms.
+              </p>
+
+              <div class="project-tags">
+                <span>Research</span>
+                <span>Sourcing</span>
+                <span>Pricing</span>
+                <span>Reselling</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         EDUCATION
+         EDIT: Add or change schools and qualifications here.
+         ========================================================= -->
+    <section id="education">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">Education</div>
+          <h2 class="section-title">My educational <span class="gradient-text">foundation.</span></h2>
+        </div>
+
+        <div class="two-column">
+
+          <div class="education-card reveal">
+
+            <div class="education-item">
+              <span>Primary</span>
+              <h3>Tuguegarao East Central School</h3>
+              <p>Primary Education</p>
+            </div>
+
+            <div class="education-item">
+              <span>Secondary</span>
+              <h3>Cagayan National High School</h3>
+              <p>Secondary Education</p>
+            </div>
+
+            <div class="education-item">
+              <span>Tertiary</span>
+              <h3>Cagayan State University</h3>
+              <p>Higher Education</p>
+            </div>
+
+          </div>
+
+
+          <!-- =====================================================
+               CERTIFICATIONS
+               ===================================================== -->
+          <div class="cert-card reveal" id="certifications">
+
+            <div class="certificate">
+              <div class="cert-icon">✓</div>
+              <div>
+                <h3>Ultimate VA Course</h3>
+                <p>Kurso.ph</p>
+              </div>
+            </div>
+
+            <div class="certificate">
+              <div class="cert-icon">↗</div>
+              <div>
+                <h3>Ongoing VA Learning</h3>
+                <p>
+                  Currently learning different VA courses,
+                  tools, and virtual assistance niches.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         SERVICES
+         EDIT: Add/remove services here.
+         ========================================================= -->
+    <section id="services">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="eyebrow">Services</div>
+          <h2 class="section-title">How I can <span class="gradient-text">support your business.</span></h2>
+          <p class="section-description">
+            I’m building my E-commerce VA career around reliable,
+            detail-oriented support for online businesses and stores.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <div class="service-card reveal">
+            <div class="service-icon">▣</div>
+            <h3>Product Listing & Optimization</h3>
+            <p>
+              Support with organizing product information and creating
+              clear, customer-friendly product listings.
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">↗</div>
+            <h3>Platform Operations</h3>
+            <p>
+              Assist with navigating e-commerce platforms and completing
+              routine operational tasks.
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">▤</div>
+            <h3>Inventory Tracking</h3>
+            <p>
+              Help maintain organized inventory information and track
+              product availability.
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">♡</div>
+            <h3>Customer Service & Support</h3>
+            <p>
+              Provide organized, respectful, and customer-focused support
+              while helping maintain a positive customer experience.
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">⌁</div>
+            <h3>Order Processing</h3>
+            <p>
+              Assist with routine order-related tasks and keep information
+              organized throughout the order process.
+            </p>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">⌕</div>
+            <h3>Product Research</h3>
+            <p>
+              Support basic product research, product comparison,
+              and selection activities.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         CONTACT
+         EDIT: Email, Facebook, location and CTA.
+         ========================================================= -->
+    <section id="contact">
+      <div class="container">
+
+        <div class="contact-box reveal">
+
+          <div class="contact-content">
+            <div class="eyebrow">Contact</div>
+
+            <h2>
+              Let's build something
+              <span class="gradient-text">great together.</span>
+            </h2>
+
+            <p>
+              Looking for an aspiring E-commerce VA who is eager to learn,
+              adaptable, detail-oriented, and ready to support your online
+              business? I'd love to connect.
+            </p>
+
+            <div class="contact-details">
+
+              <!-- EDIT: Your email -->
+              <div class="contact-detail">
+                <div class="contact-detail-icon">✉</div>
+                <a href="mailto:kymmalana@gmail.com">
+                  kymmalana@gmail.com
+                </a>
+              </div>
+
+              <!-- EDIT: Your Facebook URL -->
+              <div class="contact-detail">
+                <div class="contact-detail-icon">f</div>
+                <a
+                  href="https://www.facebook.com/KFMalana"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook / KFMalana
+                </a>
+              </div>
+
+              <!-- EDIT: Your location -->
+              <div class="contact-detail">
+                <div class="contact-detail-icon">⌖</div>
+                <span>Tuguegarao City, Cagayan, Philippines</span>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="contact-note">
+            <h3>Available for opportunities</h3>
+
+            <p>
+              I’m interested in E-commerce VA opportunities, remote work,
+              freelance projects, and opportunities where I can continue
+              developing my skills while providing reliable support.
+            </p>
+
+            <a
+              href="mailto:kymmalana@gmail.com?subject=E-commerce%20VA%20Opportunity"
+              class="btn btn-primary"
+            >
+              Email Me
+              <span>→</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+       EDIT: Footer text if desired.
+       ========================================================= -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        © <span id="year"></span>
+        <span class="footer-name">Kym Kelly Malana</span>.
+        All rights reserved.
+      </div>
+
+      <div>
+        E-commerce Virtual Assistant
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Back to top button -->
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    ↑
+  </button>
+
+
+  <script>
+    /* =========================================================
+       VANILLA JAVASCRIPT
+       No external libraries are used.
+       ========================================================= */
+
+    // ---------------------------------------------------------
+    // Mobile navigation
+    // ---------------------------------------------------------
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+
+      if (navLinks.classList.contains("open")) {
+        menuToggle.setAttribute("aria-label", "Close navigation");
+        menuToggle.textContent = "×";
+      } else {
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        menuToggle.textContent = "☰";
+      }
+    });
+
+    // Close mobile navigation after clicking a link
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-label", "Open navigation");
+      });
+    });
+
+
+    // ---------------------------------------------------------
+    // Header scroll effect
+    // ---------------------------------------------------------
+
+    const header = document.getElementById("site-header");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
+
+    // ---------------------------------------------------------
+    // Scroll reveal animation
+    // ---------------------------------------------------------
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+
+
+    // ---------------------------------------------------------
+    // Active navigation link
+    // ---------------------------------------------------------
+
+    const sections = document.querySelectorAll("main section[id]");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    const activeSectionObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navItems.forEach(link => {
+              link.classList.remove("active");
+
+              if (
+                link.getAttribute("href") ===
+                "#" + entry.target.id
+              ) {
+                link.classList.add("active");
+              }
+            });
+          }
+        });
+      },
+      {
+        rootMargin: "-35% 0px -55% 0px"
+      }
+    );
+
+    sections.forEach(section => {
+      activeSectionObserver.observe(section);
+    });
+
+
+    // ---------------------------------------------------------
+    // Back-to-top button
+    // ---------------------------------------------------------
+
+    const backTop = document.getElementById("backTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        backTop.classList.add("show");
+      } else {
+        backTop.classList.remove("show");
+      }
+    });
+
+    backTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+
+    // ---------------------------------------------------------
+    // Automatic copyright year
+    // ---------------------------------------------------------
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    // ---------------------------------------------------------
+    // Smooth scrolling fallback for older browsers
+    // ---------------------------------------------------------
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(event) {
+        const targetId = this.getAttribute("href");
+
+        if (targetId === "#") return;
+
+        const target = document.querySelector(targetId);
+
+        if (target) {
+          event.preventDefault();
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
